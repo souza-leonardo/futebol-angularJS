@@ -1,13 +1,22 @@
-<!-- Navbar -->
-<div ng-include="'app/views/common/navbar.html'"></div>
-
-<div id="wrapper">
+<div class="wrapper">
     <!-- Navigation -->
-    <div ng-include="'app/views/common/sidebar.html'"></div>
+    <div ng-include="'app/views/common/sidebar.html'">
+    </div>
 
-    <!-- Main content -->
-    <ui-view class="container-fluid"></ui-view>
+    <div class="main-panel">
+        <!-- Navbar -->
+        <div ng-include="'app/views/common/navbar.html'"></div>
+
+        <div class="content">
+            <div class="container-fluid">
+                <!-- Main content -->
+                <ui-view></ui-view>
+            </div>
+        </div>
+    </div>
+
+        
+
+    <!-- Footer -->
+    <!-- <div ng-include="'app/views/common/footer.html'"></div> -->
 </div>
-
-<!-- Footer -->
-<div ng-include="'app/views/common/footer.html'"></div>
