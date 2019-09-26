@@ -1,16 +1,21 @@
-<div class="text-center">
+<div class="text-center body-auth">
     <form class="form-signin" ng-submit="vm.logar()">
-        <img class="mb-4" src="https://getbootstrap.com/docs/4.0/assets/brand/bootstrap-solid.svg" alt="" width="72" height="72">
+        <!-- <img class="mb-4" src="app/images/logo.jpg" alt="" width="200" height="100"> -->
 
-        <h1 class="h3 mb-3 font-weight-normal">Please sign in</h1>
+        <div class="row justify-content-center">
+            <div class="col-12 text-center">
+                <h1 class="h3 mb-3 font-weight-normal text-white">Realize login para acessar o sistema</h1>
+            </div>
 
-        <label for="inputEmail" class="sr-only">Email address</label>
-        <input type="text" id="inputEmail" class="form-control" placeholder="Email address" required="" autofocus="" ng-model="vm.credenciais.username" autocomplete="username">
-
-        <label for="inputPassword" class="sr-only">Password</label>
-        <input type="password" id="inputPassword" class="form-control" ng-model="vm.credenciais.password" placeholder="Password" required="" autocomplete="current-password">
-
-        <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
-        <p class="mt-5 mb-3 text-muted">© 2017-2018</p>
+            <label for="inputEmail" class="sr-only">Usuário</label>
+            <input type="text" id="inputEmail" class="form-control" placeholder="Usuário" required autofocus ng-model="vm.credenciais.username">
+    
+            <label for="inputPassword" class="sr-only">Senha</label>
+            <input type="password" id="inputPassword" class="form-control" ng-model="vm.credenciais.password" placeholder="Senha" required="">
+    
+            <button class="btn btn-lg btn-primary btn-block" type="submit">Entrar</button>
+        </div>
+        
+        <p class="mt-5 mb-3 text-muted text-white">© 2019</p>
     </form>
 </div>

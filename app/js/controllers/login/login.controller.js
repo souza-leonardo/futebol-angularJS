@@ -59,9 +59,6 @@
             login.LogOut();
             $state.go('appSimple.login');
         }
-
-
     }
-
 
 })();
