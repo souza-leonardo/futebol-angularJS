@@ -7,7 +7,7 @@ angular
         $breadcrumbProvider.setOptions({
             prefixStateName: 'app.main',
             includeAbstract: true,
-            template: '<li class="breadcrumb-item" ng-repeat="step in steps" ng-class="{active: $last}" ng-switch="$last || !!step.abstract"><a ng-switch-when="false" href="{{step.ncyBreadcrumbLink}}">{{step.ncyBreadcrumbLabel}}</a><span ng-switch-when="true">{{step.ncyBreadcrumbLabel}}</span></li>'
+            template: '<nav aria-label="breadcrumb"><ol class="breadcrumb"><li ng-repeat="step in steps | limitTo:(steps.length-1)" class="breadcrumb-item"><a ui-sref="{{step.ncyBreadcrumbStateRef}}"> {{ step.ncyBreadcrumbLabel }} </a></li><li ng-repeat="step in steps | limitTo:-1" class="breadcrumb-item"><a> {{ step.ncyBreadcrumbLabel }} </a></li></ol></nav>'
         });
 
         $stateProvider
@@ -28,7 +28,33 @@ angular
             })
 
 
-            //desenvolvimento
+            //usuario
+            .state('app.usuario', {
+                url: '/jogador',
+                abstract: true,
+                ncyBreadcrumb: {label: 'Jogador'}
+            })
+            .state('app.usuario.listar', {
+                url: '/listar',
+                ncyBreadcrumb: {label: 'Listar'},
+                templateUrl: 'app/views/usuario/listar.html',
+                controller: 'listarUsuarioController',
+                controllerAs: 'vm',
+            })
+            .state('app.usuario.cadastrar', {
+                url: '/cadastrar',
+                templateUrl: 'app/views/usuario/novo.html',
+                ncyBreadcrumb: {label: 'Cadastrar'},
+                controller: 'cadastrarUsuarioController',
+                controllerAs: 'vm'
+            })
+            .state('app.usuario.editar', {
+                url: '/:id/editar',
+                templateUrl: 'app/views/usuario/editar.html',
+                ncyBreadcrumb: {label: 'Editar'},
+                controller: 'editarUsuarioController',
+                controllerAs: 'vm'
+            })
 
             //solicitações
             .state('app.teste', {
@@ -62,20 +88,6 @@ angular
                         templateUrl: 'app/views/teste/b.html',
                     }
                 }
-            })
-            .state('app.teste.editar', {
-                url: '/:id/editar',
-                templateUrl: 'app/views/teste/cadastrar.html',
-                ncyBreadcrumb: {label: 'Editar'},
-                controller: 'testeController',
-                controllerAs: 'vm'
-            })
-            .state('app.teste.gerenciar', {
-                url: '/:id/gerenciar',
-                templateUrl: 'app/views/teste/gerenciar.html',
-                ncyBreadcrumb: {label: 'Gerenciar'},
-                controller: 'testeController',
-                controllerAs: 'vm'
             })
 
             //páginas "deslogado"

@@ -1,0 +1,46 @@
+<div class="row justify-content-center">
+        <div class="col-12">
+            <div ncy-breadcrumb></div>
+        </div>
+    
+        <div class="col-11 card">
+            <div class="card-body">
+                <form role="form" name="userForm" class="ng-pristine ng-valid" data-ng-submit="vm.salvar()" novalidate>
+                    <div class="row">
+                        <div class="form-group col-4">
+                            <label>Nome</label>
+                            <input type="text" class="form-control" data-ng-model="vm.usuario.nome">
+                        </div>
+                        <div class="form-group col-4">
+                            <label>Apelido</label>
+                            <input type="text" class="form-control" data-ng-model="vm.usuario.apelido">
+                        </div>
+                        <div class="form-group col-4">
+                            <label>Telefone</label>
+                            <input type="text" class="form-control" data-ng-model="vm.usuario.telefone">
+                        </div>
+                        <div class="form-group col-4">
+                            <label>Usuário</label>
+                            <input type="text" class="form-control" data-ng-model="vm.usuario.username">
+                        </div>
+                        <div class="form-group col-4">
+                            <label>Senha</label>
+                            <input type="password" class="form-control" data-ng-model="vm.usuario.senha" data-min-length="6">
+                            <p ng-show="userForm.password.$invalid" class="help-block">Senha inválida</p>
+                        </div>
+                        <div class="form-group col-4">
+                            <label>Confirmar Senha</label>
+                            <input type="password" class="form-control" data-ng-model="vm.usuario.repetir_senha" data-min-length="6">
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+        
+        <div class="col-11 card">
+            <div class="card-body">
+                <button class="btn btn-danger col-3" ui-sref="app.usuario.listar">Cancelar</button>
+                <button class="btn btn-success col-3 float-md-right" type="submit">Salvar</button>
+            </div>
+        </div>
+    </div>

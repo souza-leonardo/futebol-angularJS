@@ -1,0 +1,22 @@
+<div class="modal-header">
+        <h1>Editar Jogador</h1>
+    </div>
+    
+    <div class="modal-body">
+        <div class="panel-body">
+            <div class="row">
+                <form>
+                    <div class="col-4">
+                        <label for="nome">Nome</label>
+                        <input type="text" ng-model="vm.usuario.nome">
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    
+    <div class="modal-footer">
+        <button class="btn btn-danger" data-ng-click="vm.cancelar()">Cancelar</button>
+        <button class="btn btn-success" data-ng-click="vm.ok()">Editar</button>
+    </div>
+    

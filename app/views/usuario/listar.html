@@ -1,0 +1,66 @@
+<div class="row justify-content-center">
+    <div class="col-12">
+        <div ncy-breadcrumb></div>
+    </div>
+    <div class="col-11 mb-2">
+        <button class="btn btn-secondary col-2" ui-sref="app.usuario.cadastrar">Cadastrar</button>
+    </div>
+    <div class="col-11 card">
+        <div class="card-header" ng-click="vm.abrirFiltro()">
+            <div class="row mb-2">
+                <span class="pull-left">Filtros</span>
+                <span class="pull-right">
+                    <i ng-class="{'fa fa-chevron-down': vm.mostrar.filtro, 'fa fa-chevron-up': !vm.mostrar.filtro}"></i>
+                </span>
+            </div>
+        </div>
+        <div class="card-body" uib-collapse="!vm.mostrar.filtro">
+            <form class="row justify-content-center">
+                <div class="col-4 form-group">
+                    <label for="">Nome</label>
+                    <input type="text" class="form-control" data-ng-model="vm.filtros.nome">
+                </div>
+
+                <div class="col-4 form-group">
+                    <label for="">Apelido</label>
+                    <input type="text" class="form-control" data-ng-model="vm.filtros.apelido">
+                </div>
+
+                <div class="col-4 form-group">
+                    <label for="">Teste</label>
+                    <input type="text" class="form-control" data-ng-model="vm.filtros.teste">
+                </div>
+
+                <button type="button" class="btn btn-primary col-3" data-ng-click="vm.buscarUsuarios()">Buscar</button>
+            </form>
+        </div>
+    </div>
+
+    <div class="col-11 card" data-ng-show="vm.mostrar.tabela">
+        <div class="card-body">
+            <div class="table-responsive table-full-width">
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Nome</th>
+                            <th>Apelido</th>
+                            <th><i class="fa fa-cogs"></i></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr data-ng-repeat="user in vm.usuarios">
+                            <td data-ng-bind="user.id"></td>
+                            <td data-ng-bind="user.nome"></td>
+                            <td data-ng-bind="user.apelido"></td>
+                            <td>
+                                <a data-ng-click="vm.editar(user)"><i class="fa fa-edit" style="color:blue;" uib-tooltip="Editar"></i></a>
+                                <a data-ng-click="vm.excluir(user)"><i class="far fa-times-circle" style="color:red; margin-left: 8px;" uib-tooltip="Excluir"></i></a>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
